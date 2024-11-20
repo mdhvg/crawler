@@ -75,7 +75,8 @@ def main():
             if new_username not in VISITED:
                 QUEUE.append(new_username)
         # Create Trees
-        new_usernames.remove(username)
+        if username in new_usernames:
+            new_usernames.remove(username)
         TREE[username] = new_usernames
         # Save queue
         save_json(QUEUE, "queue.json")
